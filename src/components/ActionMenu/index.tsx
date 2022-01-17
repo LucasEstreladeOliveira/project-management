@@ -26,7 +26,7 @@ const ActionMenu = ({options}:ActionMenuProps) => {
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
+        Options
       </Button>
       <Menu
         id="simple-menu"
