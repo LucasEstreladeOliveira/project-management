@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { WritableDraft } from "immer/dist/internal";
-import { users } from '../../data/users.json'
+import { users as u } from '../../data/users.json'
 import { User } from "../types/user";
 
 export const slice = createSlice({
   name: 'users',
   initialState: {
-    users
+    users: u
   },
   reducers: {
     createUser(state, {payload}) {

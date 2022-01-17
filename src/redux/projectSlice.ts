@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { WritableDraft } from "immer/dist/internal";
-import { projects } from '../../data/projects.json'
+import { projects as p } from '../../data/projects.json'
 import { Project } from "../types/project";
 
 export const slice = createSlice({
   name: 'project',
   initialState: {
-    projects
+    projects: p
   },
   reducers: {
     createProjects(state, {payload}) {
