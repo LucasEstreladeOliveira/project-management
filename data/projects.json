@@ -1,0 +1,34 @@
+{
+  "projects": [
+    {
+      "id": 0,
+      "name": "Project test 1", 
+      "description": "This is the description of the project 1", 
+      "owner": 0
+    },
+    {
+      "id": 1,
+      "name": "Project test 2", 
+      "description": "This is the description of the project 2", 
+      "owner": 1
+    },
+    {
+      "id": 2,
+      "name": "Project test 3", 
+      "description": "This is the description of the project 3", 
+      "owner": 2
+    },
+    {
+      "id": 3,
+      "name": "Project test 4", 
+      "description": "This is the description of the project 4", 
+      "owner": 3
+    }, 
+    {
+      "id": 4,
+      "name": "Project test 5", 
+      "description": "This is the description of the project 5", 
+      "owner": 4
+    }
+  ]
+}
