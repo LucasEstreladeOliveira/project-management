@@ -5,18 +5,27 @@ import { Project as ProjectType } from '../../types/project';
 import useFilter from '../../hooks/useFilter';
 import { useRouter } from 'next/router'
 import data from "../../../data/projects.json"
+import { useSelector } from 'react-redux';
+import { selectUsers } from '../../redux/usersSlice';
+import { User } from '../../types/user';
+import { selectProjects } from '../../redux/projectSlice';
+import ComponentLoading from '../ComponentLoading';
 
-const ProjectTable: React.FC = () => {
+type ProjectTableProps = {
+  filter: string
+}
+const ProjectTable: React.FC<ProjectTableProps> = ({filter}) => {
 
   function createData({ name, description, owner }: ProjectType) {
     return { id: uuidv4(), name, description, owner };
   }
   
   const router = useRouter();
+  const { users } = useSelector(selectUsers)
+  const { projects } = useSelector(selectProjects)
 
-  const rows = data.projects;
+  const rows = projects;
 
-  const filter = '';
   
   const filteredProjects = useFilter(rows, filter);
 
@@ -24,13 +33,17 @@ const ProjectTable: React.FC = () => {
     router.push(`/project/${id}`)
   }
 
-   return (
+  function handleOwner(ownerId: number) {
+    return users.filter((user: User) => user.id === ownerId)[0].name
+  }
+
+  return (
     <TableContainer component={Paper}>
       <Table size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
             <TableCell>Project</TableCell>
-            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Owner</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Options</TableCell>
           </TableRow>
@@ -41,7 +54,7 @@ const ProjectTable: React.FC = () => {
               <TableCell component="th" scope="row">
                 {row?.name}
               </TableCell>
-              <TableCell align="right">{row?.owner.name}</TableCell>
+              <TableCell align="right">{row?.owner !== undefined ? handleOwner(row?.owner) : 'Owner not defined'}</TableCell>
               <TableCell align="right">{row?.description}</TableCell>
               <TableCell align="right">
                 <ActionMenu options={[{label: 'Edit', action: () => handleEdit(row?.id)}]}/>
@@ -54,4 +67,4 @@ const ProjectTable: React.FC = () => {
   )
 }
 
-export default ProjectTable
+export default ComponentLoading(ProjectTable)

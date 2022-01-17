@@ -4,16 +4,16 @@ import {
   Toolbar,
   Typography,
   Drawer,
-  Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   CssBaseline,
 } from '@material-ui/core';
-import { Mail, Inbox } from '@material-ui/icons';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import { Archive, Person, TableChart } from '@material-ui/icons';
 import React from 'react';
+import useStyles from '../../hooks/useStyles'
+import { useRouter } from 'next/router';
 
 type BasePageProps = {
   children: React.ReactNode,
@@ -21,34 +21,8 @@ type BasePageProps = {
 }
 
 function BasePage({children, pageName}:BasePageProps) {
-  const drawerWidth = 240;
-
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      root: {
-        display: 'flex',
-      },
-      appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-      },
-      drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-      },
-      drawerPaper: {
-        width: drawerWidth,
-      },
-      drawerContainer: {
-        overflow: 'auto',
-      },
-      // necessary for content to be below app bar
-      content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-      },
-    }),
-  );
   const classes = useStyles();
+  const router = useRouter();
 
   return (
     <div>
@@ -76,22 +50,19 @@ function BasePage({children, pageName}:BasePageProps) {
           <Toolbar />
           <div className={classes.drawerContainer}>
             <List>
-              {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>{index % 2 === 0 ? <Inbox /> : <Mail />}</ListItemIcon>
-                  <ListItemText primary={text} />
+                <ListItem button onClick={() => router.push('/')} >
+                  <ListItemIcon><TableChart/></ListItemIcon>
+                  <ListItemText primary='All Projects'/>
                 </ListItem>
-              ))}
-            </List>
-            <Divider />
-            <List>
-              {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>{index % 2 === 0 ? <Inbox /> : <Mail />}</ListItemIcon>
-                  <ListItemText primary={text} />
+                <ListItem button onClick={() => router.push('/project/new')} >
+                  <ListItemIcon><Archive /></ListItemIcon>
+                  <ListItemText primary='New Project'/>
                 </ListItem>
-              ))}
-            </List>
+                <ListItem button onClick={() => router.push('/user/new')}>
+                  <ListItemIcon><Person /></ListItemIcon>
+                  <ListItemText primary='New User' />
+                </ListItem>
+            </List>            
           </div>
         </Drawer>
         <main className={classes.content}>

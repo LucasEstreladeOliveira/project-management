@@ -1,4 +1,5 @@
-import { Button, Menu, MenuItem, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
+import { IconButton, Menu, MenuItem } from '@material-ui/core'
+import { MoreVert } from '@material-ui/icons';
 import { useState } from 'react';
 
 interface ActionMenuProps {
@@ -25,9 +26,9 @@ const ActionMenu = ({options}:ActionMenuProps) => {
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
-      </Button>
+      <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} data-testid="action-menu-button">
+        <MoreVert />
+      </IconButton>
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -36,7 +37,7 @@ const ActionMenu = ({options}:ActionMenuProps) => {
         onClose={handleClose}
       >
         {options.map( option => (
-          <MenuItem key={option.label} onClick={() => handleClose(option.action)}>{option.label}</MenuItem>
+          <MenuItem key={option.label} onClick={() => handleClose(option.action)} data-testid={`action-menu-${option.label.toLowerCase()}-button`}>{option.label}</MenuItem>
 
         ))}
       </Menu>

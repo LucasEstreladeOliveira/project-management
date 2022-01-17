@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Lucas Estrela",
+      "email": "lucas@test.com.br"
+    },
+    {
+      "id": 1,
+      "name": "Peter Parker",
+      "email": "webhead@dev.com"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Otto Octavius",
+      "email": "octoups@oscorp.com"
+    },
+    {
+      "id": 3,
+      "name": "Test user",
+      "email": "test-user@test.com"
+    }, 
+    {
+      "id": 4,
+      "name": "Another test user",
+      "email": "another-test-user@test.com"
+    }
+  ]
+}

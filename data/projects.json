@@ -2,53 +2,33 @@
   "projects": [
     {
       "id": 0,
-      "name": "Projeto-1", 
-      "description": "description 1", 
-      "owner": {
-        "id": 0,
-        "name": "Lucas 1",
-        "email": "lucas@test.com.br"
-      }
+      "name": "Project test 1", 
+      "description": "This is the description of the project 1", 
+      "owner": 0
     },
     {
       "id": 1,
-      "name": "Projeto-2", 
-      "description": "description 2", 
-      "owner": {
-        "id": 1,
-        "name": "Lucas 2",
-        "email": "lucas@test.com"
-       }
+      "name": "Project test 2", 
+      "description": "This is the description of the project 2", 
+      "owner": 1
     },
     {
       "id": 2,
-      "name": "Projeto-3", 
-      "description": "description 3", 
-      "owner": {
-        "id": 2,
-        "name": "Lucas 3",
-        "email": "test@lucas.com.br"
-      }
+      "name": "Project test 3", 
+      "description": "This is the description of the project 3", 
+      "owner": 2
     },
     {
       "id": 3,
-      "name": "Projeto-4", 
-      "description": "description 4", 
-      "owner": {
-        "id": 3,
-        "name": "Lucas 4",
-        "email": "test@lucas.com"
-      }
+      "name": "Project test 4", 
+      "description": "This is the description of the project 4", 
+      "owner": 3
     }, 
     {
       "id": 4,
-      "name": "Projeto-5", 
-      "description": "description 5", 
-      "owner": {
-        "id": 4,
-        "name": "Lucas 5",
-        "email": "test@test.com"
-      }
+      "name": "Project test 5", 
+      "description": "This is the description of the project 5", 
+      "owner": 4
     }
   ]
 }
